@@ -1,7 +1,7 @@
 //dependencies
 var fs = require('fs');
 
-var XLSX = require('XLSX')
+var xlsx = require('xlsx')
 
 //variables
 var patternList = {};

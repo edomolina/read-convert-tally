@@ -1,8 +1,8 @@
 fname|lname|add|city|state|zip|id
 SampleA|Sample|123 Any Street|Anytown|US|12345|A
 SampleB|Sample|456 Any Street|Anytown|US|12345|AA
-SampleC|Sample|789 Any Street|Anytown|US|12345|B
 SampleA|Sample|123 Any Street|Anytown|US|12345|A
+SampleC|Sample|789 Any Street|Anytown|US|12345|B
 SampleB|Sample|456 Any Street|Anytown|US|12345|AA
 SampleC|Sample|789 Any Street|Anytown|US|12345|B
 SampleA|Sample|123 Any Street|Anytown|US|12345|A
@@ -65,8 +65,8 @@ SampleC|Sample|789 Any Street|Anytown|US|12345|B
 SampleA|Sample|123 Any Street|Anytown|US|12345|A
 SampleB|Sample|456 Any Street|Anytown|US|12345|AA
 SampleC|Sample|789 Any Street|Anytown|US|12345|B
-SampleB|Sample|456 Any Street|Anytown|US|12345|AA
 SampleA|Sample|123 Any Street|Anytown|US|12345|A
+SampleB|Sample|456 Any Street|Anytown|US|12345|AA
 SampleC|Sample|789 Any Street|Anytown|US|12345|B
 SampleA|Sample|123 Any Street|Anytown|US|12345|A
 SampleB|Sample|456 Any Street|Anytown|US|12345|AA
@@ -686,8 +686,8 @@ SampleC|Sample|789 Any Street|Anytown|US|12345|B
 SampleA|Sample|123 Any Street|Anytown|US|12345|A
 SampleB|Sample|456 Any Street|Anytown|US|12345|AA
 SampleC|Sample|789 Any Street|Anytown|US|12345|B
-SampleA|Sample|123 Any Street|Anytown|US|12345|A
 SampleB|Sample|456 Any Street|Anytown|US|12345|AA
+SampleA|Sample|123 Any Street|Anytown|US|12345|A
 SampleC|Sample|789 Any Street|Anytown|US|12345|B
 SampleA|Sample|123 Any Street|Anytown|US|12345|A
 SampleB|Sample|456 Any Street|Anytown|US|12345|AA
@@ -749,8 +749,8 @@ SampleC|Sample|789 Any Street|Anytown|US|12345|B
 SampleA|Sample|123 Any Street|Anytown|US|12345|A
 SampleB|Sample|456 Any Street|Anytown|US|12345|AA
 SampleC|Sample|789 Any Street|Anytown|US|12345|B
-SampleB|Sample|456 Any Street|Anytown|US|12345|AA
 SampleA|Sample|123 Any Street|Anytown|US|12345|A
+SampleB|Sample|456 Any Street|Anytown|US|12345|AA
 SampleC|Sample|789 Any Street|Anytown|US|12345|B
 SampleA|Sample|123 Any Street|Anytown|US|12345|A
 SampleB|Sample|456 Any Street|Anytown|US|12345|AA
@@ -782,9 +782,9 @@ SampleC|Sample|789 Any Street|Anytown|US|12345|B
 SampleA|Sample|123 Any Street|Anytown|US|12345|A
 SampleB|Sample|456 Any Street|Anytown|US|12345|AA
 SampleC|Sample|789 Any Street|Anytown|US|12345|B
-SampleC|Sample|789 Any Street|Anytown|US|12345|B
 SampleA|Sample|123 Any Street|Anytown|US|12345|A
 SampleB|Sample|456 Any Street|Anytown|US|12345|AA
+SampleC|Sample|789 Any Street|Anytown|US|12345|B
 SampleA|Sample|123 Any Street|Anytown|US|12345|A
 SampleB|Sample|456 Any Street|Anytown|US|12345|AA
 SampleC|Sample|789 Any Street|Anytown|US|12345|B
@@ -1374,8 +1374,8 @@ SampleA|Sample|123 Any Street|Anytown|US|12345|A
 SampleB|Sample|456 Any Street|Anytown|US|12345|AA
 SampleC|Sample|789 Any Street|Anytown|US|12345|B
 SampleA|Sample|123 Any Street|Anytown|US|12345|A
-SampleB|Sample|456 Any Street|Anytown|US|12345|AA
 SampleC|Sample|789 Any Street|Anytown|US|12345|B
+SampleB|Sample|456 Any Street|Anytown|US|12345|AA
 SampleA|Sample|123 Any Street|Anytown|US|12345|A
 SampleB|Sample|456 Any Street|Anytown|US|12345|AA
 SampleC|Sample|789 Any Street|Anytown|US|12345|B
@@ -2062,8 +2062,8 @@ SampleB|Sample|456 Any Street|Anytown|US|12345|AA
 SampleC|Sample|789 Any Street|Anytown|US|12345|B
 SampleA|Sample|123 Any Street|Anytown|US|12345|A
 SampleB|Sample|456 Any Street|Anytown|US|12345|AA
-SampleA|Sample|123 Any Street|Anytown|US|12345|A
 SampleC|Sample|789 Any Street|Anytown|US|12345|B
+SampleA|Sample|123 Any Street|Anytown|US|12345|A
 SampleB|Sample|456 Any Street|Anytown|US|12345|AA
 SampleC|Sample|789 Any Street|Anytown|US|12345|B
 SampleA|Sample|123 Any Street|Anytown|US|12345|A
@@ -2748,8 +2748,8 @@ SampleA|Sample|123 Any Street|Anytown|US|12345|A
 SampleB|Sample|456 Any Street|Anytown|US|12345|AA
 SampleC|Sample|789 Any Street|Anytown|US|12345|B
 SampleA|Sample|123 Any Street|Anytown|US|12345|A
-SampleB|Sample|456 Any Street|Anytown|US|12345|AA
 SampleC|Sample|789 Any Street|Anytown|US|12345|B
+SampleB|Sample|456 Any Street|Anytown|US|12345|AA
 SampleA|Sample|123 Any Street|Anytown|US|12345|A
 SampleB|Sample|456 Any Street|Anytown|US|12345|AA
 SampleC|Sample|789 Any Street|Anytown|US|12345|B
@@ -3437,8 +3437,8 @@ SampleC|Sample|789 Any Street|Anytown|US|12345|B
 SampleA|Sample|123 Any Street|Anytown|US|12345|A
 SampleB|Sample|456 Any Street|Anytown|US|12345|AA
 SampleC|Sample|789 Any Street|Anytown|US|12345|B
-SampleA|Sample|123 Any Street|Anytown|US|12345|A
 SampleB|Sample|456 Any Street|Anytown|US|12345|AA
+SampleA|Sample|123 Any Street|Anytown|US|12345|A
 SampleC|Sample|789 Any Street|Anytown|US|12345|B
 SampleA|Sample|123 Any Street|Anytown|US|12345|A
 SampleB|Sample|456 Any Street|Anytown|US|12345|AA
@@ -4125,8 +4125,8 @@ SampleA|Sample|123 Any Street|Anytown|US|12345|A
 SampleB|Sample|456 Any Street|Anytown|US|12345|AA
 SampleA|Sample|123 Any Street|Anytown|US|12345|A
 SampleC|Sample|789 Any Street|Anytown|US|12345|B
-SampleB|Sample|456 Any Street|Anytown|US|12345|AA
 SampleC|Sample|789 Any Street|Anytown|US|12345|B
+SampleB|Sample|456 Any Street|Anytown|US|12345|AA
 SampleA|Sample|123 Any Street|Anytown|US|12345|A
 SampleB|Sample|456 Any Street|Anytown|US|12345|AA
 SampleC|Sample|789 Any Street|Anytown|US|12345|B
@@ -4812,8 +4812,8 @@ SampleA|Sample|123 Any Street|Anytown|US|12345|A
 SampleB|Sample|456 Any Street|Anytown|US|12345|AA
 SampleC|Sample|789 Any Street|Anytown|US|12345|B
 SampleA|Sample|123 Any Street|Anytown|US|12345|A
-SampleC|Sample|789 Any Street|Anytown|US|12345|B
 SampleB|Sample|456 Any Street|Anytown|US|12345|AA
+SampleC|Sample|789 Any Street|Anytown|US|12345|B
 SampleA|Sample|123 Any Street|Anytown|US|12345|A
 SampleB|Sample|456 Any Street|Anytown|US|12345|AA
 SampleC|Sample|789 Any Street|Anytown|US|12345|B
