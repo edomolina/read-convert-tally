@@ -1,7 +1,19 @@
+//dependencies
 var fs = require('fs');
 
+var XLSX = require('XLSX')
+
+//variables
 var patternList = {};
 
+//write header
+var headerrow='fname|lname|add|city|state|zip|id' + '\n';
+
+fs.writeFile('newfile.txt', headerrow, function (err) {
+  if (err) throw err;
+});
+
+//main
 function readLines(input, callback) {
   var remaining = '';
 
@@ -16,19 +28,38 @@ function readLines(input, callback) {
     }
   });
 
+//end of file
   input.on('end', function() {
     if (remaining.length > 0) {
       func(remaining);
     }
     for (var item in patternList) {
       console.log(item, patternList[item]);
-    }    
+    }
+
+// write an XLSX file
+   var xlsxWriter = new SimpleExcel.Writer.XLSX();
+   var xlsxSheet = new SimpleExcel.Sheet();
+   var Cell = SimpleExcel.Cell;
+   xlsxSheet.setRecord([
+       [new Cell('ID', 'TEXT'), new Cell('Nama', 'TEXT'), new Cell('Kode Wilayah', 'TEXT')],
+       [new Cell(1, 'NUMBER'), new Cell('Kab. Bogor', 'TEXT'), new Cell(1, 'NUMBER')],
+       [new Cell(2, 'NUMBER'), new Cell('Kab. Cianjur', 'TEXT'), new Cell(1, 'NUMBER')],
+       [new Cell(3, 'NUMBER'), new Cell('Kab. Sukabumi', 'TEXT'), new Cell(1, 'NUMBER')],
+       [new Cell(4, 'NUMBER'), new Cell('Kab. Tasikmalaya', 'TEXT'), new Cell(2, 'NUMBER')]
+   ]);
+   xlsxWriter.insertSheet(xlsxSheet);
+   // export when button clicked
+   document.getElementById('fileExport').addEventListener('click', function () {
+       xlsxWriter.saveFile(); // pop! ("Save As" dialog appears)
+   });
+
+
   });
 }
 
 var input = fs.createReadStream('ver.txt');
 readLines(input, function(line) {
-  //console.log(line);
   var fname=line.substr(0, 12);
   var lname=line.substr(13, 16);
   var add=line.substr(29, 24);
@@ -37,27 +68,19 @@ readLines(input, function(line) {
   var zip=line.substr(83, 10);
   var id=line.substr(93, 2);
 
+//id iteration object
   if (patternList[id] === undefined) {
     patternList[id] = 1;
   } else {
     patternList[id] += 1;
   }
 
-  console.log(id, patternList[id]);
+  //console.log(id, patternList[id]);
 
-  //var datatable[0]=line.substr(0, 12);
   var newline=fname.trim() + '|' + lname.trim() + '|' + add.trim() + '|' + city.trim() + '|' + state.trim() + '|' + zip.trim() + '|' + id.trim() + '\n';
-//  console.log(fname);
-//  console.log(lname);
-//  console.log(add);
-//  console.log(city);
-//  console.log(state);
-//  console.log(zip);
-//  console.log(newline);
 
   fs.appendFile('newfile.txt', newline, function (err) {
   if (err) throw err;
-//  console.log('Data appended.');
   });
 
 });
