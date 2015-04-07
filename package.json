@@ -1,4 +1,12 @@
 {
+  "name": "read-convert-tally",
+  "description": "",
+  "version": "0.0.0",
+  "private": true,
+  "engines": {
+    "node": "0.10.23",
+    "npm": "1.4.7"
+  },
   "dependencies": {
     "xlsx": "^0.8.0"
   }

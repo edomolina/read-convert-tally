@@ -1,15 +1,24 @@
-//dependencies
 var fs = require('fs');
 
-var xlsx = require('xlsx')
+var XLSX = require('XLSX')
 
-//variables
+var _ = require('underscore')
+
 var patternList = {};
 
-//write header
+var ws_name = "PatternSheet";
+
+//dont know why
+var wscols = [
+	{wch:6},
+	{wch:7},
+	{wch:10},
+	{wch:20}
+];
+
 var headerrow='fname|lname|add|city|state|zip|id' + '\n';
 
-fs.writeFile('newfile.txt', headerrow, function (err) {
+fs.writeFile('pipefile.txt', headerrow, function (err) {
   if (err) throw err;
 });
 
@@ -37,22 +46,66 @@ function readLines(input, callback) {
       console.log(item, patternList[item]);
     }
 
-// write an XLSX file
-   var xlsxWriter = new SimpleExcel.Writer.XLSX();
-   var xlsxSheet = new SimpleExcel.Sheet();
-   var Cell = SimpleExcel.Cell;
-   xlsxSheet.setRecord([
-       [new Cell('ID', 'TEXT'), new Cell('Nama', 'TEXT'), new Cell('Kode Wilayah', 'TEXT')],
-       [new Cell(1, 'NUMBER'), new Cell('Kab. Bogor', 'TEXT'), new Cell(1, 'NUMBER')],
-       [new Cell(2, 'NUMBER'), new Cell('Kab. Cianjur', 'TEXT'), new Cell(1, 'NUMBER')],
-       [new Cell(3, 'NUMBER'), new Cell('Kab. Sukabumi', 'TEXT'), new Cell(1, 'NUMBER')],
-       [new Cell(4, 'NUMBER'), new Cell('Kab. Tasikmalaya', 'TEXT'), new Cell(2, 'NUMBER')]
-   ]);
-   xlsxWriter.insertSheet(xlsxSheet);
-   // export when button clicked
-   document.getElementById('fileExport').addEventListener('click', function () {
-       xlsxWriter.saveFile(); // pop! ("Save As" dialog appears)
-   });
+//create excel file
+
+var sheetdata = []
+
+sheetdata = _.pairs(patternList);
+
+//for (var key in patternList) {
+//    sheetdata.push(key) + ',' + patternList[key];
+//}
+
+function Workbook() {
+	if(!(this instanceof Workbook)) return new Workbook();
+	this.SheetNames = [];
+	this.Sheets = {};
+}
+var wb = new Workbook();
+
+/* convert an array of arrays in JS to a CSF spreadsheet */
+function sheet_from_array_of_arrays(sheetdata, opts) {
+	var ws = {};
+	var range = {s: {c:10000000, r:10000000}, e: {c:0, r:0 }};
+	for(var R = 0; R != sheetdata.length; ++R) {
+  		for(var C = 0; C != sheetdata[R].length; ++C) {
+			if(range.s.r > R) range.s.r = R;
+			if(range.s.c > C) range.s.c = C;
+			if(range.e.r < R) range.e.r = R;
+			if(range.e.c < C) range.e.c = C;
+			var cell = {v: sheetdata[R][C] };
+
+  		if(cell.v == null) continue;
+			var cell_ref = XLSX.utils.encode_cell({c:C,r:R});
+
+			/* TEST: proper cell types and value handling */
+			if(typeof cell.v === 'number') cell.t = 'n';
+			else if(typeof cell.v === 'boolean') cell.t = 'b';
+			else if(cell.v instanceof Date) {
+				cell.t = 'n'; cell.z = XLSX.SSF._table[14];
+				cell.v = datenum(cell.v);
+			}
+			else cell.t = 's';
+			ws[cell_ref] = cell;
+		}
+	}
+
+	/* TEST: proper range */
+	if(range.s.c < 10000000) ws['!ref'] = XLSX.utils.encode_range(range);
+	return ws;
+}
+var ws = sheet_from_array_of_arrays(sheetdata);
+
+/* TEST: add worksheet to workbook */
+wb.SheetNames.push(ws_name);
+wb.Sheets[ws_name] = ws;
+
+/* TEST: column widths */
+ws['!cols'] = wscols;
+
+/* write file */
+XLSX.writeFile(wb, 'ClientReport.xlsx');
+console.log('Excel File Created.');
 
 
   });
@@ -75,13 +128,13 @@ readLines(input, function(line) {
     patternList[id] += 1;
   }
 
-  //console.log(id, patternList[id]);
+//  console.log(id, patternList[id]);
 
   var newline=fname.trim() + '|' + lname.trim() + '|' + add.trim() + '|' + city.trim() + '|' + state.trim() + '|' + zip.trim() + '|' + id.trim() + '\n';
 
-  fs.appendFile('newfile.txt', newline, function (err) {
+  fs.appendFile('pipefile.txt', newline, function (err) {
   if (err) throw err;
   });
 
 });
-console.log('New File Created.');
+console.log('Fix Width File Converted to Pipe File.');
